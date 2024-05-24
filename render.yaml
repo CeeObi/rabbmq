@@ -6,6 +6,6 @@ services:
   # - key: RABBITMQ_ERLANG_COOKIE
   #   generateValue: true
   - key: RABBITMQ_DEFAULT_USER
-    value: guest
+    generateValue: true
   - key: RABBITMQ_DEFAULT_PASS
-    value: guest
+    generateValue: true
