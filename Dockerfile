@@ -1,8 +1,9 @@
-# Use the official RabbitMQ image
-FROM rabbitmq:3.8-management
+FROM rabbitmq:3.8.0-management
 
-# Expose ports for RabbitMQ and the management plugin
-EXPOSE 5672 15672
+COPY rabbitmq.conf /etc/rabbitmq/
 
-# Set the start command
-CMD ["rabbitmq-server"]
+ENV RABBITMQ_NODENAME=rabbit@localhost
+
+RUN chown rabbitmq:rabbitmq /etc/rabbitmq/rabbitmq.conf
+
+USER rabbitmq:rabbitmq
